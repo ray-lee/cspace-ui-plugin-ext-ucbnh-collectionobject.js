@@ -1,9 +1,7 @@
-/* global document */
-
 export const computeHybridName = ({ data }, Immutable, formatRefName) => {
   const taxonGroup = data.getIn(['taxonomicIdentGroupList', 'taxonomicIdentGroup']);
-
   const newTaxonGroup = [];
+
   if (taxonGroup && taxonGroup !== undefined) {
     for (let taxon = 0; taxon < taxonGroup.size; taxon += 1) {
       let taxonomicIdentHybridName = '';
@@ -27,7 +25,7 @@ export const computeHybridName = ({ data }, Immutable, formatRefName) => {
         const femaleParent = firstParentSex === 'female' ? firstParentName : secondParentName;
 
         const [maleParentGenus, femaleParentGenus] = [maleParent, femaleParent]
-                                                      .map(part => (part.indexOf(' ') !== -1 ? part.slice(0, part.indexOf(' ')) : part));
+          .map((part) => (part.indexOf(' ') !== -1 ? part.slice(0, part.indexOf(' ')) : part));
 
         const maleParentRest = maleParent.indexOf(' ') !== -1 ? maleParent.slice(maleParent.indexOf(' ') + 1) : maleParent;
 
@@ -64,6 +62,8 @@ export const computeHybridName = ({ data }, Immutable, formatRefName) => {
       },
     });
   }
+
+  return undefined;
 };
 
 export default computeHybridName;
