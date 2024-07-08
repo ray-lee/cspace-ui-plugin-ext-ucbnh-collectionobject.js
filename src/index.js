@@ -16,7 +16,7 @@ const plugin = () => (configContext) => ({
   },
 });
 
-module.exports = () => ({
+export default () => ({
   plugins: [
     cspaceUIPluginExtLocality(),
     plugin(),
